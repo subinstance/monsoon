@@ -7,25 +7,81 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: #fff;
-  color: #111;
+  background: #fdfcf9;
+  margin: 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
   overflow-x: hidden;
 }
 
 /* Hero */
-/* Hero */
 .hero {
   position: relative;
-  display: flex;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fefcf9; /* off-white */
   overflow: hidden;
 }
 
+.hero-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30vw;
+  font-weight: 700;
+  color: #f7a9b8; /* soft pink palette */
+  white-space: nowrap;
+  z-index: 1;
+  animation: slideWord 12s ease-in-out infinite alternate;
+}
+
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18vw; /* HUGE */
+  font-weight: 800;
+  color: #f4b6c2; /* pink from your palette */
+  letter-spacing: -5px;
+  text-transform: uppercase;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-img {
+  position: relative;
+  z-index: 2;
+  max-height: 120vh;
+  object-fit: contain;
+}
 .hero-video {
   flex: 1;
   object-fit: cover;
   filter: brightness(80%);
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 10%;
+  text-align: center;
+  color: #fff;
+  z-index: 3;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+
+/* Blur effect when scrolled */
+body.scrolled .hero-image {
+  filter: blur(8px) brightness(70%);
+  transform: scale(1.1);
+}
+body.scrolled .hero-bg-text {
+  filter: blur(4px);
+  opacity: 0.5;
 }
 
 .hero-center {
@@ -42,18 +98,28 @@ body {
 }
 
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 7vw, 6rem);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(6rem, 7vw, 6rem);
   font-weight: 600;
   letter-spacing: 2px;
   line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  margin: 1rem 0 2rem;
-  font-weight: 300;
-  letter-spacing: 1px;
+  position: absolute;
+  bottom: 8%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #333;
+  z-index: 2;
+}
+
+/* Word animation: slide left ↔ right */
+@keyframes slideWord {
+  0%   { transform: translate(-60%, -50%); }
+  50%  { transform: translate(-40%, -50%); }
+  100% { transform: translate(-60%, -50%); }
 }
 
 .cta {
