@@ -25,6 +25,33 @@ body {
   overflow: hidden;
 }
 
+.hero-train {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 200%; /* wider so text flows continuously */
+  transform: translateY(-50%);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-train span {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30vw;
+  font-weight: 700;
+  color: #f7a9b8;
+  padding-right: 5rem;
+  animation: trainMove 45s linear infinite;
+}
+
+/* Train animation */
+@keyframes trainMove {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .hero-word {
   position: absolute;
   top: 50%;
@@ -51,12 +78,7 @@ body {
   pointer-events: none;
 }
 
-.hero-img {
-  position: relative;
-  z-index: 2;
-  max-height: 120vh;
-  object-fit: contain;
-}
+
 .hero-video {
   flex: 1;
   object-fit: cover;
@@ -105,6 +127,14 @@ body.scrolled .hero-bg-text {
   line-height: 1.1;
 }
 
+.hero-img {
+  position: relative;
+  z-index: 2;
+  max-height: 125vh;
+  object-fit: contain;
+}
+
+/* Subtitle */
 .hero-subtitle {
   position: absolute;
   bottom: 8%;
